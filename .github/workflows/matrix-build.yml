@@ -70,4 +70,5 @@ jobs:
 
       - name: Push manifests
         run: |
-          docker manifest push $DOCKER_REPO:${{ steps.vars.outputs.version }}
+          docker manifest push $DOCKER_REPO:v${{ steps.vars.outputs.version }}
+          docker manifest push $DOCKER_REPO:latest
