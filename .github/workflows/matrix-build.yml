@@ -6,7 +6,7 @@ on:
       - "v*"
 
 env:
-  DOCKER_REPO: richarvey:mailhog
+  DOCKER_REPO: richarvey/mailhog
 
 jobs:
   build:
