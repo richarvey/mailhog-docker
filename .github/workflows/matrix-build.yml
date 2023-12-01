@@ -18,6 +18,8 @@ jobs:
         platform:
           - linux/amd64
           - linux/arm64
+          - linux/arm/v6
+          - linux/arm/v7
 
     steps:
       - name: Set vars
@@ -66,7 +68,9 @@ jobs:
         run: |
           docker manifest create $DOCKER_REPO:latest \
             $DOCKER_REPO:${{ steps.vars.outputs.version }}-linux-amd64 \
-            $DOCKER_REPO:${{ steps.vars.outputs.version }}-linux-arm64 
+            $DOCKER_REPO:${{ steps.vars.outputs.version }}-linux-arm64 \
+            $DOCKER_REPO:${{ steps.vars.outputs.version }}-linux-arm-v6 \
+            $DOCKER_REPO:${{ steps.vars.outputs.version }}-linux-arm-v7
 
       - name: Push manifests
         run: |
