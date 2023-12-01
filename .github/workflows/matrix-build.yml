@@ -64,11 +64,10 @@ jobs:
 
       - name: Create Docker Hub manifest
         run: |
-          docker manifest create $DOCKER_REPO:${{ steps.vars.outputs.version }} \
+          docker manifest create $DOCKER_REPO:latest \
             $DOCKER_REPO:${{ steps.vars.outputs.version }}-linux-amd64 \
             $DOCKER_REPO:${{ steps.vars.outputs.version }}-linux-arm64 
 
       - name: Push manifests
         run: |
-          docker manifest push $DOCKER_REPO:v${{ steps.vars.outputs.version }}
           docker manifest push $DOCKER_REPO:latest
